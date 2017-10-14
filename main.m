@@ -10,6 +10,7 @@ format long;
 
 % Imports
 addpath differentiation
+addpath integration
 addpath interpolation
 addpath polynomials
 addpath solutions
@@ -96,3 +97,19 @@ disp('Differentiation: Five-Point method')
 x = [2.1 2.2 2.3 2.4 2.5 2.6]
 y = [-1.709847 -1.373823 -1.119214 -0.9160143 -0.7470223 -0.6015966]
 [dy] = derivative_five_point(x, y)
+
+disp('Integration: Trapezoidal Rule')
+f = @(x) (x^2 * log(x^2 + 1));
+a = 0.0;
+b = 2.0;
+h = 0.25
+n = (b-a)/h;
+[xi] = composite_trapezoidal(f, b, a, n)
+
+disp('Integration: Composite 1/3 Simpsons Rule')
+f = @(x) (x^2 * log(x^2 + 1));
+a = 0.0;
+b = 2.0;
+h = 0.25
+n = (b-a)/h;
+[xi] = composite_simpson(f, b, a, n)
