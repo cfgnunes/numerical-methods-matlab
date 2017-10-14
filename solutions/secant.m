@@ -11,11 +11,8 @@ function [root, iter, converged] = secant(f, a, b, tol, iter_max)
 %      iter: Used iterations
 % converged: Found the root
 
-    x=a;
-    fa=eval(f);
-
-    x=b;
-    fb=eval(f);
+    fa=f(a);
+    fb=f(b);
 
     if (fb-fa == 0)
         error('Error: f(b)-f(a) must be nonzero.')
@@ -39,7 +36,7 @@ function [root, iter, converged] = secant(f, a, b, tol, iter_max)
     for iter=0:iter_max
         deltaX=-fx/(fb-fa)*(b-a);
         x=x+deltaX;
-        fx=eval(f);
+        fx=f(x);
         fprintf('iter: %.3d\t a: %.4f\t fa: %.4f\t b: %.4f\t fb: %.4f\t x: %.4f\t fx: %.4f\t deltaX: %.4f\n', iter, a, fa, b, fb, x, fx, deltaX);
         if(abs(deltaX)<=tol && abs(fx)<=tol)
             break;

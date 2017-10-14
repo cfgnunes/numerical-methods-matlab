@@ -5,7 +5,6 @@
 clc;
 clear all;
 close all;
-syms x;
 format long;
 
 % Imports
@@ -25,7 +24,7 @@ addpath solutions
 %         It is necessary to enter a search interval [a, b];
 %         The interval reported must have a signal exchange, f (a) * f (b) <0.
 disp('Solutions: Bisection method');
-f = 4*x^3 + x + cos(x) - 10;
+f = @(x) (4*x^3 + x + cos(x) - 10);
 tol = 10^-5;
 iter_max = 100;
 a = 1.0;
@@ -40,11 +39,12 @@ b = 2.0;
 %         It is necessary to calculate the derivative of the function;
 %         It is necessary to give an initial x0 value where f'(x0) must be nonzero.
 disp('Solutions: Newton method');
-f = 4*x^3 + x + cos(x) - 10;
+f = @(x) (4*x^3 + x + cos(x) - 10);
+df =  @(x) (12 * x^2 + 1 - sin(x));
 tol = 10^-5;
 iter_max = 100;
 x0 = 2.0;
-[root, iter, converged] = newton(f, x0, tol, iter_max)
+[root, iter, converged] = newton(f, df, x0, tol, iter_max)
 
 % Secant method (find roots of an equation)
 %     Pros:
@@ -54,7 +54,7 @@ x0 = 2.0;
 %         It may diverge if the function is not approximately linear in the range containing the root;
 %         It is necessary to give two points 'a' and 'b' where f(a)-f(b) must be nonzero.
 disp('Solutions: Secant method');
-f = 4*x^3 + x + cos(x) - 10;
+f = @(x) (4*x^3 + x + cos(x) - 10);
 tol = 10^-5;
 iter_max = 100;
 a = 1.0;

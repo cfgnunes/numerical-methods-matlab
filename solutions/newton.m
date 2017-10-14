@@ -1,4 +1,4 @@
-function [root, iter, converged] = newton(f, x0, tol, iter_max)
+function [root, iter, converged] = newton(f, df, x0, tol, iter_max)
 % Calculates the root of an equation by Newton method
 % Inputs:
 %         f: Function f(x)
@@ -12,8 +12,8 @@ function [root, iter, converged] = newton(f, x0, tol, iter_max)
 % converged: Found the root
 
     x=x0;
-    fx=eval(f);
-    dfx=eval(diff(f,'x'));
+    fx=f(x);
+    dfx=df(x);
 
     iter=0;
     fprintf('iter: %.3d\t x: %.4f\t dfx: %.4f\t fx: %.4f\n', iter, x, dfx, fx);
@@ -21,8 +21,8 @@ function [root, iter, converged] = newton(f, x0, tol, iter_max)
     for iter=1:iter_max
         deltaX=-fx/dfx;
         x=x+deltaX;
-        fx=eval(f);
-        dfx=eval(diff(f,'x'));
+        fx=f(x);
+        dfx=df(x);
 
         fprintf('iter: %.3d\t x: %.4f\t dfx: %.4f\t fx: %.4f\t deltaX: %.4f\n', iter, x, dfx, fx, deltaX);
 
