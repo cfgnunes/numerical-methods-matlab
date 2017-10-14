@@ -45,9 +45,9 @@ function [root, iter, converged] = bisection(f, a, b, tol, iter_max)
     root=x;
 
     if(deltaX <= tol && abs(fx) <= tol)
-        converged=0;
+        converged=1;
     else
         warning('Warning: The method not converged.');
-        converged=1;
+        converged=0;
     end
 end

@@ -34,9 +34,9 @@ function [root, iter, converged] = newton(f, x0, tol, iter_max)
     root=x;
 
     if(abs(deltaX)<=tol && abs(fx)<=tol)
-        converged=0;
+        converged=1;
     else
         warning('Warning: The method not converged.');
-        converged=1;
+        converged=0;
     end
 end
