@@ -1,5 +1,5 @@
-function [vx, vy] = euler(f, a, b, n, ya)
-% Calculate the solution of the initial-value problem from Euler method
+function [vx, vy] = rk4(f, a, b, n, ya)
+% Calculate the solution of the initial-value problem from Runge-Kutta (Order Four) method
 % Inputs:
 %         f: Function f(x)
 %         a: Initial point
@@ -20,15 +20,18 @@ function [vx, vy] = euler(f, a, b, n, ya)
     vx(1)=x;
     vy(1)=y;
 
-    fxy = f(x, y);
-    fprintf('i: %.3d\t x: %.4f\t y: %.4f\n', 0, x, y);
+    fprintf('i: %.3d\t x:%.4f\t y:%.4f\t\n', 0, x, y);
 
     for i=1:n
-        x=a+i*h;
-        y=y+h*fxy;
+        k1=h*f(x, y);
+        k2=h*f(x+h/2, y+k1/2);
+        k3=h*f(x+h/2, y+k2/2);
+        k4=h*f(x+h, y+k3);
 
-        fxy = f(x, y);
-        fprintf('i: %.3d\t x: %.4f\t y: %.4f\n', i, x, y);
+        x=a+i*h;
+        y=y+(k1 + 2*k2 + 2*k3 + k4)/6;
+
+        fprintf('i: %.3d\t x:%.4f\t y:%.4f\t\n', i, x, y);
         vx(i+1)=x;
         vy(i+1)=y;
     end

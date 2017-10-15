@@ -115,10 +115,19 @@ n = (b-a)/h;
 [xi] = composite_simpson(f, b, a, n)
 
 disp('EDO: Euler method')
-f = @(x, y) (y - x^2 + 1);
-a = 0.0;
+f = @(x, y) (1 + y/x);
+a = 1.0;
 b = 2.0;
-h=0.2;
+h=0.25;
 n = (b-a)/h;
-ya = 0.5;
+ya = 2.0;
 [vx, vy] = euler(f, a, b, n, ya)
+
+disp('EDO: Runge-Kutta (Order Four) method')
+f = @(x, y) (1 + y/x);
+a = 1.0;
+b = 2.0;
+h=0.25;
+n = (b-a)/h;
+ya = 2.0;
+[vx, vy] = rk4(f, a, b, n, ya)
