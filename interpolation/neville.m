@@ -1,8 +1,8 @@
 function [y_int, q] = neville(x, y, x_int)
 % Interpolates a value using Neville polynomial
 % Inputs:
-%         x: X values
-%         y: Y values
+%         x: Array containing x values
+%         y: Array containing y values
 %     x_int: Value to interpolate
 % Outputs:
 %     y_int: Interpolated value

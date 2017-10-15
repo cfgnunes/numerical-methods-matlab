@@ -1,10 +1,10 @@
 function [f] = newton_divided_difference(x, y)
 % Find the coefficients of Newton's divided difference and the Newton's polynomial
 % Inputs:
-%         x: X values
-%         y: Y values
+%         x: Array containing x values
+%         y: Array containing y values
 % Outpus:
-%         f: Vector containing Newton's divided difference coefficients
+%         f: Array containing Newton's divided difference coefficients
 
     n = size(x, 2);
     q = zeros(n, n - 1);
