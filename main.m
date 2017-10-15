@@ -5,7 +5,7 @@
 clc;
 clear all;
 close all;
-format long;
+format short;
 
 % Imports
 addpath differentiation
@@ -149,3 +149,20 @@ b = 2.0;
 n = 10;
 ya = 0.5;
 [vx, vy] = rk4(f, a, b, n, ya);
+
+disp('EDO: Runge-Kutta (Order Four) method for systems of differential equations')
+m = 4;
+f = cell(m, 1);
+f{1} = @(x, y) (-y(1));
+f{2} = @(x, y) (y(2));
+f{3} = @(x, y) (-2*y(3));
+f{4} = @(x, y) (2*y(4));
+a = 0.0;
+b = 2.0;
+n = 20;
+ya = zeros(m, 1);
+ya(1) = 1.0;
+ya(2) = 1.0;
+ya(3) = 1.0;
+ya(4) = 1.0;
+[vx, vy] = rk4_system(f, a, b, n, ya)
