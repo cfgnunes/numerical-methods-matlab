@@ -115,19 +115,37 @@ n = (b-a)/h;
 [xi] = composite_simpson(f, b, a, n)
 
 disp('EDO: Euler method')
-f = @(x, y) (1 + y/x);
-a = 1.0;
+f = @(x, y) (y - x^2 + 1);
+a = 0.0;
 b = 2.0;
-h=0.25;
-n = (b-a)/h;
-ya = 2.0;
-[vx, vy] = euler(f, a, b, n, ya)
+n = 10;
+ya = 0.5;
+[vx, vy] = euler(f, a, b, n, ya);
+
+disp('EDO: Taylor (Order Two) method')
+f = @(x, y) (y -x^2 +1);
+df1 = @(x, y) (y -x^2 +1 -2*x);
+a = 0.0;
+b = 2.0;
+n = 10;
+ya = 0.5;
+[vx, vy] = taylor2(f, df1, a, b, n, ya);
+
+disp('EDO: Taylor (Order Four) method')
+f = @(x, y) (y -x^2 +1);
+df1 = @(x, y) (y -x^2 +1 -2*x);
+df2 = @(x, y) (y -x^2 +1 -2*x -2);
+df3 = @(x, y) (y -x^2 +1 -2*x -2);
+a = 0.0;
+b = 2.0;
+n = 10;
+ya = 0.5;
+[vx, vy] = taylor4(f, df1, df2, df3, a, b, n, ya);
 
 disp('EDO: Runge-Kutta (Order Four) method')
-f = @(x, y) (1 + y/x);
-a = 1.0;
+f = @(x, y) (y - x^2 + 1);
+a = 0.0;
 b = 2.0;
-h=0.25;
-n = (b-a)/h;
-ya = 2.0;
-[vx, vy] = rk4(f, a, b, n, ya)
+n = 10;
+ya = 0.5;
+[vx, vy] = rk4(f, a, b, n, ya);
