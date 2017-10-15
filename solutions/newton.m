@@ -2,7 +2,7 @@ function [root, iter, converged] = newton(f, df, x0, tol, iter_max)
 % Calculates the root of an equation by Newton method
 % Inputs:
 %         f: Function f(x)
-%        df: Derivatre of function f(x)
+%        df: Derivative of function f(x)
 %        x0: Initial guess
 %       tol: Tolerance
 %  iter_max: Maximum number of iterations

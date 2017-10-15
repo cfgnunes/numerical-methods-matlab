@@ -2,9 +2,9 @@ function [vx, vy] = taylor4(f, df1, df2, df3, a, b, n, ya)
 % Calculate the solution of the initial-value problem from Taylor (Order Four) method
 % Inputs:
 %         f: Function f(x)
-%       df1: 1's derivate of function f(x)
-%       df2: 2's derivate of function f(x)
-%       df3: 3's derivate of function f(x)
+%       df1: 1's derivative of function f(x)
+%       df2: 2's derivative of function f(x)
+%       df3: 3's derivative of function f(x)
 %         a: Initial point
 %         b: End point
 %         n: Number of intervals

@@ -1,6 +1,6 @@
 function [dy] = derivative_backward_difference(x, y)
-% Calculate the first derivative.
-% All values in 'x' must be equally spaced.
+% Calculate the first derivative
+% All values in 'x' must be equally spaced
 % Inputs:
 %         x: Array containing x values
 %         y: Array containing y values
