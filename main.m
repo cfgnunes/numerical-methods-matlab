@@ -151,18 +151,15 @@ ya = 0.5;
 [vx, vy] = rk4(f, a, b, n, ya);
 
 disp('EDO: Runge-Kutta (Order Four) method for systems of differential equations')
-m = 4;
+m = 2;
 f = cell(m, 1);
-f{1} = @(x, y) (-y(1));
-f{2} = @(x, y) (y(2));
-f{3} = @(x, y) (-2*y(3));
-f{4} = @(x, y) (2*y(4));
+f{1} = @(x, y) (-4*y(1) + 3*y(2) + 6);
+f{2} = @(x, y) (-2.4*y(1) + 1.6*y(2) + 3.6);
 a = 0.0;
-b = 2.0;
-n = 20;
+b = 0.5;
+h = 0.1
+n = (b-a)/h;
 ya = zeros(m, 1);
-ya(1) = 1.0;
-ya(2) = 1.0;
-ya(3) = 1.0;
-ya(4) = 1.0;
+ya(1) = 0.0;
+ya(2) = 0.0;
 [vx, vy] = rk4_system(f, a, b, n, ya)
