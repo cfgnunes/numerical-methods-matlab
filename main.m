@@ -11,6 +11,7 @@ format short;
 addpath differentiation
 addpath integration
 addpath interpolation
+addpath ode
 addpath polynomials
 addpath solutions
 
