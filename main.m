@@ -113,3 +113,12 @@ b = 2.0;
 h = 0.25
 n = (b-a)/h;
 [xi] = composite_simpson(f, b, a, n)
+
+disp('EDO: Euler method')
+f = @(x, y) (y - x^2 + 1);
+a = 0.0;
+b = 2.0;
+h=0.2;
+n = (b-a)/h;
+ya = 0.5;
+[vx, vy] = euler(f, a, b, n, ya)
