@@ -13,7 +13,7 @@ function [xi] = composite_trapezoidal(f, b, a, n)
     sum_x = 0;
 
     for i=1:(n-1)
-        x = a + i*h
+        x = a + i*h;
         sum_x = sum_x + f(x);
     end
 
