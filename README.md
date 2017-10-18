@@ -34,7 +34,7 @@ Repository: https://github.com/cfgnunes/numerical-methods-matlab
 - Taylor's (Order Four) method
 - Runge-Kutta (Order Four) method
 
-### Systems of Differential Equations
+### Systems of differential equations
 - Runge-Kutta (Order Four) method
 
 ## Examples
