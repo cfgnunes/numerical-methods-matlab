@@ -100,12 +100,22 @@ y = [-1.709847 -1.373823 -1.119214 -0.9160143 -0.7470223 -0.6015966]
 [dy] = derivative_five_point(x, y)
 
 disp('Integration: Trapezoidal Rule')
+x=[0, 6, 12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72, 78, 84];
+y=[124, 134, 148, 156, 147, 133, 121, 109, 99, 85, 78, 89, 104, 116, 123];
+[xi] = composite2_trapezoidal(x, y)
+
+disp('Integration: Trapezoidal Rule')
 f = @(x) (x^2 * log(x^2 + 1));
 a = 0.0;
 b = 2.0;
 h = 0.25
 n = (b-a)/h;
 [xi] = composite_trapezoidal(f, b, a, n)
+
+disp('Integration: Composite 1/3 Simpsons Rule')
+x=[0, 6, 12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72, 78, 84];
+y=[124, 134, 148, 156, 147, 133, 121, 109, 99, 85, 78, 89, 104, 116, 123];
+[xi] = composite2_simpson(x, y)
 
 disp('Integration: Composite 1/3 Simpsons Rule')
 f = @(x) (x^2 * log(x^2 + 1));
