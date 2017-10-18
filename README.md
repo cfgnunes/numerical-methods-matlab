@@ -19,16 +19,16 @@ Repository: https://github.com/cfgnunes/numerical-methods-matlab
 - Briot-Ruffini method
 - Newton's Divided-Difference method
 
-### Numerical Differentiation
+### Numerical differentiation
 - Backward-difference method
 - Three-Point method
 - Five-Point method
 
-### Numerical Integration
+### Numerical integration
 - Composite Trapezoidal method
 - Composite 1/3 Simpson's method
 
-### Initial-Value Problems for Ordinary Differential Equations
+### Initial-value problems for ordinary differential equations
 - Euler's method
 - Taylor's (Order Two) method
 - Taylor's (Order Four) method
