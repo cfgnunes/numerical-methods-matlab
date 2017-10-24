@@ -13,9 +13,9 @@ function [b, rest] = briot_ruffini(root, a)
 
     b(1) = a(1);
 
-    for i=2:n
-        b(i) = b(i-1)*root + a(i);
+    for i = 2:n
+        b(i) = b(i - 1) * root + a(i);
     end
 
-    rest = b(n)*root + a(n+1);
+    rest = b(n) * root + a(n + 1);
 end
