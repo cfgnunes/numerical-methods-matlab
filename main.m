@@ -97,7 +97,7 @@ y = [9.025013 11.02318 13.46374 16.44465]
 
 disp('Differentiation: Five-Point method')
 x = [2.1 2.2 2.3 2.4 2.5 2.6]
-y = [- 1.709847 - 1.373823 - 1.119214 - 0.9160143 - 0.7470223 - 0.6015966]
+y = [-1.709847 -1.373823 -1.119214 -0.9160143 -0.7470223 -0.6015966]
 [dy] = derivative_five_point(x, y)
 
 disp('Integration: Trapezoidal Rule')
@@ -176,11 +176,11 @@ ya(1) = 0.0;
 ya(2) = 0.0;
 [vx, vy] = rk4_system(f, a, b, n, ya)
 
-%disp('Linear Systems: Gaussian Elimination')
-%A = [1 1 0 3; 2 1 - 1 1; 3 - 1 - 1 2; - 1 2 3 - 1]
-%b = [4 1 - 3 4]
-%
-%disp('Linear Systems: Backward Substitution')
-%U = [1 - 1 2 - 1; 0 2 - 1 1; 0 0 - 1 - 1; 0 0 0 2];
-%d = [- 8 6 - 4 4];
-%[x] = backward_substitution(U, d)
+disp('Linear Systems: Gaussian Elimination')
+a = [1 1 0 3; 2 1 -1 1; 3 -1 -1 2; -1 2 3 -1]
+b = [4 1 -3 4]
+
+disp('Linear Systems: Backward Substitution')
+u = [1 -1 2 -1; 0 2 -1 1; 0 0 -1 -1; 0 0 0 2];
+d = [-8 6 -4 4];
+[x] = backward_substitution(u, d)
