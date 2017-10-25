@@ -38,9 +38,11 @@ function [root, iter, converged] = secant(f, a, b, tol, iter_max)
         x = x + deltaX;
         fx = f(x);
         fprintf('iter: %.3d\t a: %.4f\t fa: %.4f\t b: %.4f\t fb: %.4f\t x: %.4f\t fx: %.4f\t deltaX: %.4f\n', iter, a, fa, b, fb, x, fx, deltaX);
+
         if abs(deltaX) <= tol && abs(fx) <= tol
             break;
         end
+
         a = b;
         fa = fb;
         b = x;
@@ -51,7 +53,7 @@ function [root, iter, converged] = secant(f, a, b, tol, iter_max)
     if abs(deltaX) <= tol && abs(fx) <= tol
         converged = 1;
     else
-        warning('Warning: The method not converged.');
+        warning('Warning: The method did not converge.');
         converged = 0;
     end
 end
