@@ -3,7 +3,6 @@
 % E-mail: <cfgnunes@gmail.com>
 
 clc;
-clear all;
 close all;
 format short;
 
@@ -76,13 +75,13 @@ x_int = 1.5
 [y_int, q] = neville(x, y, x_int)
 
 disp('Polynomials: Briot-Ruffini method');
-root = - 2;
-a = [2 0 - 3 3 - 4]
+root = -2
+a = [2 0 -3 3 -4]
 [b, rest] = briot_ruffini(root, a)
 
 disp('Polynomials: Newtons Divided-Difference method');
-x = [1.0 1.3 1.6 1.9 2.2];
-y = [0.7651977 0.6200860 0.4554022 0.2818186 0.1103623];
+x = [1.0 1.3 1.6 1.9 2.2]
+y = [0.7651977 0.6200860 0.4554022 0.2818186 0.1103623]
 [f] = newton_divided_difference(x, y)
 
 disp('Differentiation: Backward-difference method')
@@ -109,7 +108,7 @@ disp('Integration: Trapezoidal Rule')
 f = @(x) (x ^ 2 * log(x ^ 2 + 1));
 a = 0.0;
 b = 2.0;
-h = 0.25
+h = 0.25;
 n = (b - a) / h;
 [xi] = composite_trapezoidal(f, b, a, n)
 
