@@ -10,11 +10,11 @@ function [dy] = derivative_backward_difference(x, y)
     x_size = size(x, 2);
     y_size = size(y, 2);
 
-    if (x_size < 2 || y_size < 2)
+    if x_size < 2 || y_size < 2
         error('Error: "x" and "y" arrays must have 2 values or more.')
     end
 
-    if(y_size ~= y_size)
+    if y_size ~= y_size
         error('Error: "x" and "y" must have same size.')
     end
 
@@ -22,10 +22,10 @@ function [dy] = derivative_backward_difference(x, y)
 
     n = x_size;
     dy = zeros(1, n);
-    for i=1:n
-        if(i == n)
+    for i = 1:n
+        if i == n
             h = x(i) - x(i - 1);
-            dy(i) = dy_difference(-h, y(i), y(i - 1));
+            dy(i) = dy_difference(- h, y(i), y(i - 1));
         else
             h = x(i + 1) - x(i);
             dy(i) = dy_difference(h, y(i), y(i + 1));
