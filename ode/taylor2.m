@@ -1,4 +1,4 @@
-function [vx, vy] = taylor4(f, df1, a, b, n, ya)
+function [vx, vy] = taylor2(f, df1, a, b, n, ya)
 % Calculate the solution of the initial-value problem from Taylor (Order Two) method
 % Inputs:
 %         f: Function f(x)
