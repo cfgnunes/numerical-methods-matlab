@@ -125,7 +125,7 @@ h = 0.25;
 n = (b - a) / h;
 [xi] = composite_simpson(f, b, a, n)
 
-disp('> Running EDO: Euler method')
+disp('> Running ODE: Euler method')
 f = @(x, y) (y - x ^ 2 + 1);
 a = 0.0;
 b = 2.0;
@@ -133,7 +133,7 @@ n = 10;
 ya = 0.5;
 [vx, vy] = euler(f, a, b, n, ya);
 
-disp('> Running EDO: Taylor (Order Two) method')
+disp('> Running ODE: Taylor (Order Two) method')
 f = @(x, y) (y - x ^ 2 + 1);
 df1 = @(x, y) (y - x ^ 2 + 1 - 2 * x);
 a = 0.0;
@@ -142,7 +142,7 @@ n = 10;
 ya = 0.5;
 [vx, vy] = taylor2(f, df1, a, b, n, ya);
 
-disp('> Running EDO: Taylor (Order Four) method')
+disp('> Running ODE: Taylor (Order Four) method')
 f = @(x, y) (y - x ^ 2 + 1);
 df1 = @(x, y) (y - x ^ 2 + 1 - 2 * x);
 df2 = @(x, y) (y - x ^ 2 + 1 - 2 * x - 2);
@@ -153,7 +153,7 @@ n = 10;
 ya = 0.5;
 [vx, vy] = taylor4(f, df1, df2, df3, a, b, n, ya);
 
-disp('> Running EDO: Runge-Kutta (Order Four) method')
+disp('> Running ODE: Runge-Kutta (Order Four) method')
 f = @(x, y) (y - x ^ 2 + 1);
 a = 0.0;
 b = 2.0;
@@ -161,7 +161,7 @@ n = 10;
 ya = 0.5;
 [vx, vy] = rk4(f, a, b, n, ya);
 
-disp('> Running EDO: Runge-Kutta (Order Four) method for systems of differential equations')
+disp('> Running ODE: Runge-Kutta (Order Four) method for systems of differential equations')
 m = 2;
 f = cell(m, 1);
 f{1} = @(x, y) (- 4 * y(1) + 3 * y(2) + 6);
