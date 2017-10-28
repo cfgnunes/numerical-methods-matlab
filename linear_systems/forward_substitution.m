@@ -13,6 +13,8 @@ function [x] = forward_substitution(l, c)
         error('Error: "l" must be a square matrix.')
     end
 
+    x = zeros(1, n);
+
     x(1) = c(1) / l(1, 1);
     for i = 2:n
         sum_x = 0;
