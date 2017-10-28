@@ -121,7 +121,7 @@ disp('> Running Integration: Composite 1/3 Simpsons Rule')
 f = @(x) (x ^ 2 * log(x ^ 2 + 1));
 a = 0.0;
 b = 2.0;
-h = 0.25
+h = 0.25;
 n = (b - a) / h;
 [xi] = composite_simpson(f, b, a, n)
 
