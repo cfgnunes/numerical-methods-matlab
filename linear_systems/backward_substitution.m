@@ -13,6 +13,8 @@ function [x] = backward_substitution(u, d)
         error('Error: "u" must be a square matrix.')
     end
 
+    x = zeros(1, n);
+
     x(n) = d(n) / u(n, n);
     for i = (n-1):-1:1
         sum_x = 0;
