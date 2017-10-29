@@ -6,8 +6,8 @@ function [x] = forward_substitution(l, c)
 % Outputs:
 %         x: Solution of linear system
 
-    n = size(u, 1);
-    m = size(u, 2);
+    n = size(l, 1);
+    m = size(l, 2);
 
     if n ~= m
         error('Error: "l" must be a square matrix.')
