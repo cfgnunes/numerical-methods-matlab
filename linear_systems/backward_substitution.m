@@ -6,8 +6,7 @@ function [x] = backward_substitution(u, d)
 % Outputs:
 %         x: Solution of linear system
 
-    n = size(u, 1);
-    m = size(u, 2);
+    [n, m] = size(u);
 
     if n ~= m
         error('Error: "u" must be a square matrix.')
