@@ -11,8 +11,6 @@ function [vx, vy] = rk4_system(f, a, b, n, ya)
 %       vy: Array containing y values (solution of IVP)
 
     m = size(f, 1);
-    x = 0;
-    y = zeros(m, 1);
 
     k1 = zeros(m, 1);
     k2 = zeros(m, 1);
@@ -23,6 +21,7 @@ function [vx, vy] = rk4_system(f, a, b, n, ya)
     vy = zeros(m, n + 1);
 
     h = (b - a) / n;
+
     x = a;
     y = ya;
 
