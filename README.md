@@ -37,6 +37,11 @@ Repository: https://github.com/cfgnunes/numerical-methods-matlab
 ### Systems of differential equations
 - Runge-Kutta (Order Four) method
 
+### Methods for Linear Systems
+- Gaussian Elimination
+- Backward Substitution
+- Forward Substitution
+
 ## Examples
 To run all algorithms, use:
 
