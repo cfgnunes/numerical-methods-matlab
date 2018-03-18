@@ -14,12 +14,12 @@ function [x] = forward_substitution(l, c)
 
     x = zeros(1, n);
 
-    x(1) = c(1) / l(1, 1);
-    for i = 2:n
-        sum_x = 0;
-        for j = 1:(i-1)
-            sum_x = sum_x + l(i, j) * x(j);
+    for i = 1:n
+        if (l(i, i) == 0)
+            error('Error: Matrix "l" is singular.')
         end
-        x(i) = (c(i) - sum_x) / l(i, i);
+
+        x(i) = c(i) / l(i, i);
+        c(i + 1:n) = c(i + 1:n) - l(i + 1:n, i) * x(i);
     end
 end
