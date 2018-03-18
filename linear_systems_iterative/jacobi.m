@@ -1,4 +1,4 @@
-function [x] = jacobi(a, b, x0, tol, iter_max);
+function [x] = jacobi(a, b, x0, tol, iter_max)
 % Jacobi method: solve Ax = b given an initial approximation x0
 % Inputs:
 %         a: Matrix A from system Ax=b
@@ -9,17 +9,18 @@ function [x] = jacobi(a, b, x0, tol, iter_max);
 % Outpus:
 %         x: Solution of linear system
 
-% D and M matrices
-d = diag(diag(a));
-m = a - d;
+    % D and M matrices
+    d = diag(diag(a));
+    m = a - d;
 
-k = 1;
-dr(k) = tol + 1;
+    k = 1;
+    dr(k) = tol + 1;
 
-% Iterative process
-while (k <= iter_max) & (dr(k) > tol)
-    k = k + 1;
-    x = d \ (b - m * x0);  % "A\B" is the same as "INV(A)*B"
-    dr(k) = norm(x - x0, inf) / norm(x, inf);
-    x0 = x;
+    % Iterative process
+    while (k <= iter_max) && (dr(k) > tol)
+        k = k + 1;
+        x = d \ (b - m * x0);  % "A\B" is the same as "INV(A)*B"
+        dr(k) = norm(x - x0, inf) / norm(x, inf);
+        x0 = x;
+    end
 end
