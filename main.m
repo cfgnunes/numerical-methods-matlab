@@ -11,6 +11,7 @@ addpath differentiation
 addpath integration
 addpath interpolation
 addpath linear_systems
+addpath linear_systems_iterative
 addpath ode
 addpath polynomials
 addpath solutions
@@ -189,3 +190,19 @@ disp('> Running Linear Systems: Forward Substitution')
 l = [3 0 0 0; -1 1 0 0; 3 -2 -1 0; 1 -2 6 2];
 c = [5 6 4 2];
 [a] = forward_substitution(l, c')
+
+disp('> Running Iteractive Linear Systems: Jacobi')
+a = [10 -1 2 0; -1 11 -1 3; 2 -1 10 -1; 0 3 -1 8];
+b = [6 25 -11 15];
+x0 = [0 0 0 0];
+tol = 10 ^ -3;
+iter_max = 10;
+[x] = jacobi(a, b', x0', tol, iter_max)
+
+disp('> Running Iteractive Linear Systems: Gauss-Seidel')
+a = [10 -1 2 0; -1 11 -1 3; 2 -1 10 -1; 0 3 -1 8];
+b = [6 25 -11 15];
+x0 = [0 0 0 0];
+tol = 10 ^ -3;
+iter_max = 10;
+[x] = gauss_seidel(a, b', x0', tol, iter_max)
