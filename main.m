@@ -178,7 +178,7 @@ ya(2) = 0.0;
 disp('> Running Linear Systems: Gaussian Elimination')
 a = [1 -1 2 -1; 2 -2 3 -3; 1 1 1 0; 1 -1 4 3];
 b = [-8 -20 -2 4];
-[a] = gauss_elimination(a, b')
+[a] = gauss_elimination_pp(a, b')
 
 disp('> Running Linear Systems: Backward Substitution')
 u = a(:,1:end-1);
