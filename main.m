@@ -1,5 +1,5 @@
 %% Numerical methods implementation in MATLAB.
-% Author: Cristiano Nunes
+% Author: Cristiano Fraga G. Nunes
 % E-mail: <cfgnunes@gmail.com>
 
 clc;
