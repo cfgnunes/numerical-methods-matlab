@@ -1,3 +1,5 @@
+# File based on: https://github.com/github/gitignore
+
 # Windows default autosave extension
 *.asv
 
@@ -7,11 +9,25 @@
 # Compiled MEX binaries (all platforms)
 *.mex*
 
-# Simulink Code Generation
-slprj/
+# Packaged app and toolbox files
+*.mlappinstall
+*.mltbx
 
-# Session info
-octave-workspace
+# Generated helpsearch folders
+helpsearch*/
+
+# Simulink code generation folders
+slprj/
+sccprj/
+
+# Matlab code generation folders
+codegen/
 
 # Simulink autosave extension
 *.autosave
+
+# Simulink cache files
+*.slxc
+
+# Octave session info
+octave-workspace
