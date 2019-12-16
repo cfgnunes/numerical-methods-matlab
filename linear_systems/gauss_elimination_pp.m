@@ -33,7 +33,6 @@ function [a] = gauss_elimination_pp(a, b)
 
         if p == n + 1
             warning('Info: No unique solution.');
-            break
         else
             if p ~= i
                 % Swap rows
