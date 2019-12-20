@@ -1,4 +1,5 @@
 %% Numerical methods implementation in MATLAB.
+%
 % Author: Cristiano Nunes <cfgnunes@gmail.com>
 % Date: 2017-10-29
 
