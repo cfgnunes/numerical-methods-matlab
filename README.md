@@ -4,7 +4,7 @@ If you like this project, please consider making a donation to support the devel
 
 Numerical methods implementation in MATLAB.
 
-If you want these implementations in Python, see [this repository](https://github.com/cfgnunes/numerical-methods-python).
+For the "Python version", see [this repository](https://github.com/cfgnunes/numerical-methods-python).
 
 ## Getting Started
 
