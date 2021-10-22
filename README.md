@@ -62,7 +62,3 @@ To run the main example, use:
 
 - Jacobi method
 - Gauss-Seidel method
-
-## Authors
-
-- Cristiano Nunes
