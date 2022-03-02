@@ -1,5 +1,5 @@
 function [root, iter, converged] = newton(f, df, x0, tol, iter_max)
-    % Calculate the root of an equation by Newton method.
+    % Calculate the root of an equation by the Newton method.
     %
     % Args:
     %     f: function f(x).

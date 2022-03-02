@@ -2,8 +2,8 @@ function [xi] = composite2_simpson(x, y)
     % Calculate the integral from 1/3 Simpson's Rule.
     %
     % Args:
-    %     x: array containing x values.
-    %     y: array containing y values.
+    %     x: an array containing x values.
+    %     y: an array containing y values.
     %
     % Returns:
     %     xi: integral value.

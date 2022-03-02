@@ -3,10 +3,10 @@ function [x] = forward_substitution(l, c)
     %
     % Args:
     %     lower: lower triangular matrix.
-    %     c: array containing c values.
+    %     c: an array containing c values.
     %
     % Returns:
-    %     x: solution of linear system.
+    %     x: solution of linear the system.
 
     [n, m] = size(l);
 

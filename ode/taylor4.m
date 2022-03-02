@@ -1,21 +1,21 @@
 function [vx, vy] = taylor4(f, df1, df2, df3, a, b, n, ya)
     % Calculate the solution of the initial-value problem (IVP).
     %
-    % Solve the IVP from Taylor (Order Four) method.
+    % Solve the IVP from the Taylor (Order Four) method.
     %
     % Args:
     %     f: function f(x).
     %     df1: 1's derivative of function f(x).
     %     df2: 2's derivative of function f(x).
     %     df3: 3's derivative of function f(x).
-    %     a: initial point.
-    %     b: end point.
+    %     a: the initial point.
+    %     b: the final point.
     %     n: number of intervals.
     %     ya: initial value.
     %
     % Returns:
-    %     vx: array containing x values.
-    %     vy: array containing y values (solution of IVP).
+    %     vx: an array containing x values.
+    %     vy: an array containing y values (solution of IVP).
 
     vx = zeros(1, n + 1);
     vy = zeros(1, n + 1);

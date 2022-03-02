@@ -4,15 +4,15 @@ function [vx, vy] = rk4_system(f, a, b, n, ya)
     % Solve from Runge-Kutta (Order Four) method.
     %
     % Args:
-    %     f: array of functions f(x).
-    %     a: initial point.
-    %     b: end point.
+    %     f: an array of functions f(x).
+    %     a: the initial point.
+    %     b: the final point.
     %     n: number of intervals.
-    %     ya: array of initial values.
+    %     ya: an array of initial values.
     %
     % Returns:
-    %     vx: array containing x values.
-    %     vy: array containing y values (solution of IVP).
+    %     vx: an array containing x values.
+    %     vy: an array containing y values (solution of IVP).
 
     m = size(f, 1);
 

@@ -4,11 +4,11 @@ function [dy] = derivative_five_point(x, y)
     % All values in 'x' must be equally spaced.
     %
     % Args:
-    %     x: array containing x values.
-    %     y: array containing y values.
+    %     x: an array containing x values.
+    %     y: an array containing y values.
     %
     % Returns:
-    %     dy: array containing the first derivative values.
+    %     dy: an array containing the first derivative values.
 
     x_size = size(x, 2);
     y_size = size(y, 2);

@@ -3,10 +3,10 @@ function [x] = backward_substitution(u, d)
     %
     % Args:
     %     upper: upper triangular matrix.
-    %     d: array containing d values.
+    %     d: an array containing d values.
     %
     % Returns:
-    %     x: solution of linear system.
+    %     x: solution of linear the system.
 
     [n, m] = size(u);
 

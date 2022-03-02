@@ -3,8 +3,8 @@ function [xi] = composite_simpson(f, b, a, n)
     %
     % Args:
     %     f: function f(x).
-    %     a: initial point.
-    %     b: end point.
+    %     a: the initial point.
+    %     b: the final point.
     %     n: number of intervals.
     %
     % Returns:

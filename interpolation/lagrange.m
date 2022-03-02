@@ -1,9 +1,9 @@
 function [y_int] = lagrange(x, y, x_int)
-    % Interpolates a value using Lagrange polynomial.
+    % Interpolates a value using the 'Lagrange polynomial'.
     %
     % Args:
-    %     x: array containing x values.
-    %     y: array containing y values.
+    %     x: an array containing x values.
+    %     y: an array containing y values.
     %     x_int: value to interpolate.
     %
     % Returns:

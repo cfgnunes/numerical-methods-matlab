@@ -3,13 +3,13 @@ function [x, iter] = jacobi(a, b, x0, tol, iter_max)
     %
     % Args:
     %     a: matrix A from system Ax=b.
-    %     b: array containing b values.
-    %     x0: initial approximation of solution.
+    %     b: an array containing b values.
+    %     x0: initial approximation of the solution.
     %     tol: tolerance.
     %     iter_max: maximum number of iterations.
     %
     % Returns:
-    %     x: solution of linear system.
+    %     x: solution of linear the system.
     %     iter: used iterations.
 
     % D and M matrices

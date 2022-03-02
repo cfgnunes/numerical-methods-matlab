@@ -1,5 +1,5 @@
 function [root, iter, converged] = secant(f, a, b, tol, iter_max)
-    % Calculate the root of an equation by Secant method.
+    % Calculate the root of an equation by the Secant method.
     %
     % Args:
     %     f: function f(x).

@@ -1,5 +1,5 @@
 function [root, iter, converged] = bisection(f, a, b, tol, iter_max)
-    % Calculate the root of an equation by Bisection method.
+    % Calculate the root of an equation by the Bisection method.
     %
     % Args:
     %     f: function f(x).

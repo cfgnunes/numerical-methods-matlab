@@ -1,12 +1,12 @@
 function [a] = gauss_elimination_pp(a, b)
     % Gaussian Elimination with Partial Pivoting.
     %
-    % Calculate the upper triangular matrix from linear system Ax=b (do a row
+    % Calculate the upper triangular matrix from linear system Ax=b (make a row
     % reduction).
     %
     % Args:
     %     a: matrix A from system Ax=b.
-    %     b: array containing b values.
+    %     b: an array containing b values.
     %
     % Returns:
     %     a: augmented upper triangular matrix.
@@ -33,7 +33,7 @@ function [a] = gauss_elimination_pp(a, b)
 
         end
 
-        % Cheking for nullity of the pivots
+        % Checking for nullity of the pivots
         while p <= n && a(p, i) == 0
             p = p + 1;
         end

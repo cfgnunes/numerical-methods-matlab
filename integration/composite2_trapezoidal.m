@@ -1,9 +1,9 @@
 function [xi] = composite2_trapezoidal(x, y)
-    % Calculate the integral from Trapezoidal Rule.
+    % Calculate the integral from the Trapezoidal Rule.
     %
     % Args:
-    %     x: array containing x values.
-    %     y: array containing y values.
+    %     x: an array containing x values.
+    %     y: an array containing y values.
     %
     % Returns:
     %     xi: integral value.

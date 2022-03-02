@@ -19,7 +19,7 @@ addpath solutions
 % Bisection method (find roots of an equation)
 %   Pros:
 %       It is a reliable method with guaranteed convergence;
-%       It is a simple method that searches for the root employing a
+%       It is a simple method that searches for the root by employing a
 %           binary search;
 %       There is no need to calculate the derivative of the function.
 %   Cons:
@@ -58,7 +58,7 @@ x0 = 2.0;
 %   Cons:
 %       It may diverge if the function is not approximately linear in the
 %           range containing the root;
-%       It is necessary to give two points 'a' and 'b' where
+%       It is necessary to give two points, 'a' and 'b' where
 %           f(a)-f(b) must be nonzero.
 disp('> Run an example "Solutions: Secant method".')
 f = @(x) (4 * x^3 + x + cos(x) - 10);
