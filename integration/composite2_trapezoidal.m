@@ -1,10 +1,12 @@
 function [xi] = composite2_trapezoidal(x, y)
-% Calculate the integral from Trapezoidal Rule
-% Inputs:
-%         x: Array containing x values
-%         y: Array containing y values
-% Outputs:
-%        xi: Integral value
+    % Calculate the integral from Trapezoidal Rule.
+    %
+    % Args:
+    %     x: array containing x values.
+    %     y: array containing y values.
+    %
+    % Returns:
+    %     xi: integral value.
 
     x_size = size(x, 2);
     y_size = size(y, 2);

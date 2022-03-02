@@ -1,10 +1,12 @@
 function [x] = backward_substitution(u, d)
-% Solve the upper linear system ux=d
-% Inputs:
-%         u: Upper triangular matrix
-%         d: Array containing d values
-% Outputs:
-%         x: Solution of linear system
+    % Solve the upper linear system ux=d.
+    %
+    % Args:
+    %     upper: upper triangular matrix.
+    %     d: array containing d values.
+    %
+    % Returns:
+    %     x: solution of linear system.
 
     [n, m] = size(u);
 
@@ -15,6 +17,7 @@ function [x] = backward_substitution(u, d)
     x = zeros(1, n);
 
     for i = n:-1:1
+
         if (u(i, i) == 0)
             error('Error: Matrix "u" is singular.')
         end
@@ -22,4 +25,5 @@ function [x] = backward_substitution(u, d)
         x(i) = d(i) / u(i, i);
         d(1:i - 1) = d(1:i - 1) - u(1:i - 1, i) * x(i);
     end
+
 end

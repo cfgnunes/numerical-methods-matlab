@@ -1,11 +1,14 @@
 function [dy] = derivative_backward_difference(x, y)
-% Calculate the first derivative
-% All values in 'x' must be equally spaced
-% Inputs:
-%         x: Array containing x values
-%         y: Array containing y values
-% Outputs:
-%        dy: Array containing the first derivative values
+    % Calculate the first derivative.
+    %
+    % All values in 'x' must be equally spaced.
+    %
+    % Args:
+    %     x: array containing x values.
+    %     y: array containing y values.
+    %
+    % Returns:
+    %     dy: array containing the first derivative values.
 
     x_size = size(x, 2);
     y_size = size(y, 2);
@@ -22,7 +25,9 @@ function [dy] = derivative_backward_difference(x, y)
 
     n = x_size;
     dy = zeros(1, n);
+
     for i = 1:n
+
         if i == n
             h = x(i) - x(i - 1);
             dy(i) = dy_difference(- h, y(i), y(i - 1));
@@ -30,5 +35,7 @@ function [dy] = derivative_backward_difference(x, y)
             h = x(i + 1) - x(i);
             dy(i) = dy_difference(h, y(i), y(i + 1));
         end
+
     end
+
 end

@@ -1,11 +1,14 @@
 function [dy] = derivative_five_point(x, y)
-% Calculate the first derivative
-% All values in 'x' must be equally spaced
-% Inputs:
-%         x: Array containing x values
-%         y: Array containing y values
-% Outputs:
-%        dy: Array containing the first derivative values
+    % Calculate the first derivative.
+    %
+    % All values in 'x' must be equally spaced.
+    %
+    % Args:
+    %     x: array containing x values.
+    %     y: array containing y values.
+    %
+    % Returns:
+    %     dy: array containing the first derivative values.
 
     x_size = size(x, 2);
     y_size = size(y, 2);
@@ -24,7 +27,9 @@ function [dy] = derivative_five_point(x, y)
     h = x(2) - x(1);
     n = x_size;
     dy = zeros(1, n);
+
     for i = 1:n
+
         if i == 1 || i == 2
             dy(i) = dy_end(h, y(i), y(i + 1), y(i + 2), y(i + 3), y(i + 4));
         elseif i == n || i == n - 1
@@ -32,5 +37,7 @@ function [dy] = derivative_five_point(x, y)
         else
             dy(i) = dy_mid(h, y(i - 2), y(i - 1), y(i + 1), y(i + 2));
         end
+
     end
+
 end

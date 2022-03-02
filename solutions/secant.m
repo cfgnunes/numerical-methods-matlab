@@ -1,15 +1,17 @@
 function [root, iter, converged] = secant(f, a, b, tol, iter_max)
-% Calculates the root of an equation by Secant method
-% Inputs:
-%         f: Function f(x)
-%         a: Lower limit
-%         b: Upper limit
-%       tol: Tolerance
-%  iter_max: Maximum number of iterations
-% Outpus:
-%      root: Root value
-%      iter: Used iterations
-% converged: Found the root
+    % Calculate the root of an equation by Secant method.
+    %
+    % Args:
+    %     f: function f(x).
+    %     a: lower limit.
+    %     b: upper limit.
+    %     tol: tolerance.
+    %     iter_max: maximum number of iterations.
+    %
+    % Returns:
+    %     root: root value.
+    %     iter: used iterations.
+    %     converged: found the root.
 
     fa = f(a);
     fb = f(b);
@@ -33,8 +35,9 @@ function [root, iter, converged] = secant(f, a, b, tol, iter_max)
 
     x = b;
     fx = fb;
+
     for iter = 0:iter_max
-        deltaX = - fx / (fb - fa) * (b - a);
+        deltaX = -fx / (fb - fa) * (b - a);
         x = x + deltaX;
         fx = f(x);
         fprintf('iter: %.3d\t a: %.4f\t fa: %.4f\t b: %.4f\t fb: %.4f\t x: %.4f\t fx: %.4f\t deltaX: %.4f\n', iter, a, fa, b, fb, x, fx, deltaX);
@@ -48,6 +51,7 @@ function [root, iter, converged] = secant(f, a, b, tol, iter_max)
         b = x;
         fb = fx;
     end
+
     root = x;
 
     if abs(deltaX) <= tol && abs(fx) <= tol
@@ -56,4 +60,5 @@ function [root, iter, converged] = secant(f, a, b, tol, iter_max)
         warning('Warning: The method did not converge.');
         converged = 0;
     end
+
 end

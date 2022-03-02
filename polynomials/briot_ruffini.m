@@ -1,12 +1,15 @@
 function [b, rest] = briot_ruffini(root, a)
-% Divides a polynomial by another polynomial in the format (x-root)
-% P(x) = Q(x) * (x-root) + rest
-% Inputs:
-%         a: Array containing the coefficients of the input polynomial
-%      root: One of the polynomial roots
-% Outpus:
-%         b: Array containing the coefficients of the output polynomial
-%      rest: Polynomial division Rest
+    % Divides a polynomial by another polynomial.
+    %
+    % The format is: P(x) = Q(x) * (x-root) + rest.
+    %
+    % Args:
+    %     a: array containing the coefficients of the input polynomial.
+    %     root: one of the polynomial roots.
+    %
+    % Returns:
+    %     b: array containing the coefficients of the output polynomial.
+    %     rest: polynomial division Rest.
 
     n = size(a, 2) - 1;
     b = zeros(1, n);

@@ -1,14 +1,18 @@
 function [vx, vy] = euler(f, a, b, n, ya)
-% Calculate the solution of the initial-value problem from Euler method
-% Inputs:
-%         f: Function f(x)
-%         a: Initial point
-%         b: End point
-%         n: Number of intervals
-%        ya: Initial value
-% Outputs:
-%       vx: Array containing x values
-%       vy: Array containing y values (solution of IVP)
+    % Calculate the solution of the initial-value problem (IVP).
+    %
+    % Solve the IVP from Euler method.
+    %
+    % Args:
+    %     f: function f(x).
+    %     a: initial point.
+    %     b: end point.
+    %     n: number of intervals.
+    %     ya: initial value.
+    %
+    % Returns:
+    %     vx: array containing x values.
+    %     vy: array containing y values (solution of IVP).
 
     vx = zeros(1, n + 1);
     vy = zeros(1, n + 1);
@@ -32,4 +36,5 @@ function [vx, vy] = euler(f, a, b, n, ya)
         vx(i + 1) = x;
         vy(i + 1) = y;
     end
+
 end

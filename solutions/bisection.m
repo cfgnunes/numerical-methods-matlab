@@ -1,15 +1,17 @@
 function [root, iter, converged] = bisection(f, a, b, tol, iter_max)
-% Calculates the root of an equation by Bisection method
-% Inputs:
-%         f: Function f(x)
-%         a: Lower limit
-%         b: Upper limit
-%       tol: Tolerance
-%  iter_max: Maximum number of iterations
-% Outpus:
-%      root: Root value
-%      iter: Used iterations
-% converged: Found the root
+    % Calculate the root of an equation by Bisection method.
+    %
+    % Args:
+    %     f: function f(x).
+    %     a: lower limit.
+    %     b: upper limit.
+    %     tol: tolerance.
+    %     iter_max: maximum number of iterations.
+    %
+    % Returns:
+    %     root: root value.
+    %     iter: used iterations.
+    %     converged: found the root.
 
     fa = f(a);
     fb = f(b);
@@ -48,4 +50,5 @@ function [root, iter, converged] = bisection(f, a, b, tol, iter_max)
         warning('Warning: The method did not converge.');
         converged = 0;
     end
+
 end

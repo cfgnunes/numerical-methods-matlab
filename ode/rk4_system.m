@@ -1,14 +1,18 @@
 function [vx, vy] = rk4_system(f, a, b, n, ya)
-% Calculate the solution of systems of differential equations from Runge-Kutta (Order Four) method
-% Inputs:
-%         f: Array of functions f(x)
-%         a: Initial point
-%         b: End point
-%         n: Number of intervals
-%        ya: Array of initial values
-% Outputs:
-%       vx: Array containing x values
-%       vy: Array containing y values (solution of IVP)
+    % Calculate the solution of systems of differential equations.
+    %
+    % Solve from Runge-Kutta (Order Four) method.
+    %
+    % Args:
+    %     f: array of functions f(x).
+    %     a: initial point.
+    %     b: end point.
+    %     n: number of intervals.
+    %     ya: array of initial values.
+    %
+    % Returns:
+    %     vx: array containing x values.
+    %     vy: array containing y values (solution of IVP).
 
     m = size(f, 1);
 
@@ -52,4 +56,5 @@ function [vx, vy] = rk4_system(f, a, b, n, ya)
         vx(i + 1) = x;
         vy(:, i + 1) = y;
     end
+
 end

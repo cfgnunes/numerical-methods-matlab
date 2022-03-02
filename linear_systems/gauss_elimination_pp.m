@@ -1,10 +1,15 @@
 function [a] = gauss_elimination_pp(a, b)
-% Gaussian Elimination with Partial Pivoting - Calculate the upper upper triangular matrix from linear system Ax=b (do a row reduction)
-% Inputs:
-%         a: Matrix A from system Ax=b
-%         b: Array containing b values
-% Outputs:
-%         a: Augmented upper triangular matrix
+    % Gaussian Elimination with Partial Pivoting.
+    %
+    % Calculate the upper triangular matrix from linear system Ax=b (do a row
+    % reduction).
+    %
+    % Args:
+    %     a: matrix A from system Ax=b.
+    %     b: array containing b values.
+    %
+    % Returns:
+    %     a: augmented upper triangular matrix.
 
     [n, m] = size(a);
 
@@ -20,10 +25,12 @@ function [a] = gauss_elimination_pp(a, b)
 
         % Comparison to select the pivot
         for j = (i + 1):n
+
             if abs(a(j, i)) > abs(a(i, i))
                 % Swap rows
                 a([i j], :) = a([j i], :);
             end
+
         end
 
         % Cheking for nullity of the pivots
@@ -34,19 +41,23 @@ function [a] = gauss_elimination_pp(a, b)
         if p == n + 1
             warning('Info: No unique solution.');
         else
+
             if p ~= i
                 % Swap rows
                 a([i p], :) = a([p i], :);
             end
+
         end
 
         for j = (i + 1):n
             a(j, :) = a(j, :) - a(i, :) * (a(j, i) / a(i, i));
         end
+
     end
 
     % Checking for nonzero of last entry
     if a(n, n) == 0
         warning('Info: No unique solution.');
     end
+
 end

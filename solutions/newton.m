@@ -1,15 +1,17 @@
 function [root, iter, converged] = newton(f, df, x0, tol, iter_max)
-% Calculates the root of an equation by Newton method
-% Inputs:
-%         f: Function f(x)
-%        df: Derivative of function f(x)
-%        x0: Initial guess
-%       tol: Tolerance
-%  iter_max: Maximum number of iterations
-% Outpus:
-%      root: Root value
-%      iter: Used iterations
-% converged: Found the root
+    % Calculate the root of an equation by Newton method.
+    %
+    % Args:
+    %     f: function f(x).
+    %     df: derivative of function f(x).
+    %     x0: initial guess.
+    %     tol: tolerance.
+    %     iter_max: maximum number of iterations.
+    %
+    % Returns:
+    %     root: root value.
+    %     iter: used iterations.
+    %     converged: found the root.
 
     x = x0;
     fx = f(x);
@@ -19,7 +21,7 @@ function [root, iter, converged] = newton(f, df, x0, tol, iter_max)
     fprintf('iter: %.3d\t x: %.4f\t dfx: %.4f\t fx: %.4f\n', iter, x, dfx, fx);
 
     for iter = 1:iter_max
-        deltaX = - fx / dfx;
+        deltaX = -fx / dfx;
         x = x + deltaX;
         fx = f(x);
         dfx = df(x);
@@ -29,6 +31,7 @@ function [root, iter, converged] = newton(f, df, x0, tol, iter_max)
         if (abs(deltaX) <= tol && abs(fx) <= tol) || dfx == 0
             break;
         end
+
     end
 
     root = x;
@@ -39,4 +42,5 @@ function [root, iter, converged] = newton(f, df, x0, tol, iter_max)
         warning('Warning: The method did not converge.');
         converged = 0;
     end
+
 end
