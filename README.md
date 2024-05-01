@@ -1,4 +1,4 @@
-# Numerical Methods
+# Numerical Methods in MATLAB
 
 Numerical methods implementation in MATLAB.
 
