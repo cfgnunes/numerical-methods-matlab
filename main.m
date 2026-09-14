@@ -33,30 +33,14 @@ iter_max = 100;
 %   Cons:
 %       Slow convergence;
 %       It is necessary to enter a search interval [a, b];
-%       The interval reported must have a signal exchange, f (a) * f (b)<0.
+%       The interval reported must have a sign change, f(a) * f(b)<0.
 disp('> Run an example "Solutions: Bisection method".')
-f = @(x) (4 * x^3 + x + cos(x) - 10);
-tol = 10^ - 5;
-iter_max = 100;
-a = 1.0;
+f = @(x) (2 * x^3 - cos(x + 1) - 3);
+a = -1.0;
 b = 2.0;
-[root, iter, converged] = bisection(f, a, b, tol, iter_max)
-
-% Newton method (find roots of an equation)
-%   Pros:
-%       It is a fast method.
-%    Cons:
-%       It may diverge;
-%       It is necessary to calculate the derivative of the function;
-%       It is necessary to give an initial x0 value where
-%           f'(x0) must be nonzero.
-disp('> Run an example "Solutions: Newton method".')
-f = @(x) (4 * x^3 + x + cos(x) - 10);
-df = @(x) (12 * x^2 + 1 - sin(x));
-tol = 10^ - 5;
+toler = 0.01;
 iter_max = 100;
-x0 = 2.0;
-[root, iter, converged] = newton(f, df, x0, tol, iter_max)
+[root, iter, converged] = bisection(f, a, b, toler, iter_max)
 
 % Secant method (find roots of an equation)
 %   Pros:
@@ -69,12 +53,12 @@ x0 = 2.0;
 %       It is necessary to give two points, 'a' and 'b' where
 %           f(a)-f(b) must be nonzero.
 disp('> Run an example "Solutions: Secant method".')
-f = @(x) (4 * x^3 + x + cos(x) - 10);
-tol = 10^ - 5;
-iter_max = 100;
-a = 1.0;
+f = @(x) (2 * x^3 - cos(x + 1) - 3);
+a = -1.0;
 b = 2.0;
-[root, iter, converged] = secant(f, a, b, tol, iter_max)
+toler = 0.01;
+iter_max = 100;
+[root, iter, converged] = secant(f, a, b, toler, iter_max)
 
 disp('> Run an example "Solutions: Regula Falsi method".')
 f = @(x) (2 * x^3 - cos(x + 1) - 3);
@@ -99,6 +83,22 @@ b = 2.0;
 toler = 0.01;
 iter_max = 100;
 [root, iter, converged] = muller(f, a, b, toler, iter_max)
+
+% Newton method (find roots of an equation)
+%   Pros:
+%       It is a fast method.
+%    Cons:
+%       It may diverge;
+%       It is necessary to calculate the derivative of the function;
+%       It is necessary to give an initial x0 value where
+%           f'(x0) must be nonzero.
+disp('> Run an example "Solutions: Newton method".')
+f = @(x) (2 * x^3 - cos(x + 1) - 3);
+df = @(x) (6 * x^2 + sin(x + 1));
+x0 = 1.0;
+toler = 0.01;
+iter_max = 100;
+[root, iter, converged] = newton(f, df, x0, toler, iter_max)
 
 disp('> Run an example "Interpolation: Lagrange method".')
 x = [2 11/4 4];
@@ -193,7 +193,7 @@ a = 0.0;
 b = 2.0;
 n = 10;
 ya = 0.5;
-[vx, vy] = euler(f, a, b, n, ya);
+[vx, vy] = euler(f, a, b, n, ya)
 
 disp('> Run an example "ODE: Taylor (Order Two) method".')
 f = @(x, y) (y - x^2 + 1);
@@ -202,7 +202,7 @@ a = 0.0;
 b = 2.0;
 n = 10;
 ya = 0.5;
-[vx, vy] = taylor2(f, df1, a, b, n, ya);
+[vx, vy] = taylor2(f, df1, a, b, n, ya)
 
 disp('> Run an example "ODE: Taylor (Order Four) method".')
 f = @(x, y) (y - x^2 + 1);
@@ -213,7 +213,7 @@ a = 0.0;
 b = 2.0;
 n = 10;
 ya = 0.5;
-[vx, vy] = taylor4(f, df1, df2, df3, a, b, n, ya);
+[vx, vy] = taylor4(f, df1, df2, df3, a, b, n, ya)
 
 disp('> Run an example "ODE: Runge-Kutta (Order Four) method".')
 f = @(x, y) (y - x^2 + 1);
@@ -221,7 +221,7 @@ a = 0.0;
 b = 2.0;
 n = 10;
 ya = 0.5;
-[vx, vy] = rk4(f, a, b, n, ya);
+[vx, vy] = rk4(f, a, b, n, ya)
 
 disp('> Run an example "ODE: Runge-Kutta (Order Four) method for systems of differential equations".')
 m = 2;
@@ -252,18 +252,18 @@ l = [3 0 0 0; -1 1 0 0; 3 -2 -1 0; 1 -2 6 2];
 c = [5 6 4 2];
 [a] = forward_substitution(l, c')
 
-disp('> Run an example "Iteractive Linear Systems: Jacobi".')
+disp('> Run an example "Iterative Linear Systems: Jacobi".')
 a = [10 -1 2 0; -1 11 -1 3; 2 -1 10 -1; 0 3 -1 8];
 b = [6 25 -11 15];
 x0 = [0 0 0 0];
-tol = 10^ - 3;
+toler = 10^ - 3;
 iter_max = 10;
-[x, iter] = jacobi(a, b', x0', tol, iter_max)
+[x, iter] = jacobi(a, b', x0', toler, iter_max)
 
-disp('> Run an example "Iteractive Linear Systems: Gauss-Seidel".')
+disp('> Run an example "Iterative Linear Systems: Gauss-Seidel".')
 a = [10 -1 2 0; -1 11 -1 3; 2 -1 10 -1; 0 3 -1 8];
 b = [6 25 -11 15];
 x0 = [0 0 0 0];
-tol = 10^ - 3;
+toler = 10^ - 3;
 iter_max = 10;
-[x, iter] = gauss_seidel(a, b', x0', tol, iter_max)
+[x, iter] = gauss_seidel(a, b', x0', toler, iter_max)
