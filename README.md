@@ -14,21 +14,31 @@ To run the main example, use:
 
 ## Implementations
 
+### Limits
+
+- Epsilon-delta method
+
 ### Solutions of equations
 
 - Bisection method
-- Newton method
 - Secant method
+- Regula Falsi method (False Position)
+- Pegasus method
+- Muller method
+- Newton method
 
 ### Interpolation
 
 - Lagrange method
+- Newton method
+- Gregory-Newton method
 - Neville method
 
 ### Algorithms for polynomials
 
 - Briot-Ruffini method
 - Newton's Divided-Difference method
+- Limits of the real roots
 
 ### Numerical differentiation
 
@@ -40,6 +50,7 @@ To run the main example, use:
 
 - Composite Trapezoidal method
 - Composite 1/3 Simpson's method
+- Romberg method
 
 ### Initial-value problems for ordinary differential equations
 

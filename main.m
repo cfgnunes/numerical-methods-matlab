@@ -10,11 +10,19 @@ format short;
 addpath differentiation
 addpath integration
 addpath interpolation
+addpath limits
 addpath linear_systems
 addpath linear_systems_iterative
 addpath ode
 addpath polynomials
 addpath solutions
+
+disp('> Run an example "Limits: epsilon-delta definition".')
+f = @(x) (sin(x) / x);
+x = 0;
+toler = 10^ - 5;
+iter_max = 100;
+[limit, iter, converged] = limit_epsilon_delta(f, x, toler, iter_max)
 
 % Bisection method (find roots of an equation)
 %   Pros:
@@ -68,17 +76,57 @@ a = 1.0;
 b = 2.0;
 [root, iter, converged] = secant(f, a, b, tol, iter_max)
 
+disp('> Run an example "Solutions: Regula Falsi method".')
+f = @(x) (2 * x^3 - cos(x + 1) - 3);
+a = -1.0;
+b = 2.0;
+toler = 0.01;
+iter_max = 100;
+[root, iter, converged] = regula_falsi(f, a, b, toler, iter_max)
+
+disp('> Run an example "Solutions: Pegasus method".')
+f = @(x) (2 * x^3 - cos(x + 1) - 3);
+a = -1.0;
+b = 2.0;
+toler = 0.01;
+iter_max = 100;
+[root, iter, converged] = pegasus(f, a, b, toler, iter_max)
+
+disp('> Run an example "Solutions: Muller method".')
+f = @(x) (2 * x^3 - cos(x + 1) - 3);
+a = -1.0;
+b = 2.0;
+toler = 0.01;
+iter_max = 100;
+[root, iter, converged] = muller(f, a, b, toler, iter_max)
+
 disp('> Run an example "Interpolation: Lagrange method".')
 x = [2 11/4 4];
 y = [1/2 4/11 1/4];
 x_int = 3;
 [y_int] = lagrange(x, y, x_int)
 
+disp('> Run an example "Interpolation: Newton method".')
+x = [0.1 0.3 0.4 0.6 0.7];
+y = [0.3162 0.5477 0.6325 0.7746 0.8367];
+x_int = 0.2;
+[y_int] = newton_interpolation(x, y, x_int)
+
+disp('> Run an example "Interpolation: Gregory-Newton method".')
+x = [110 120 130];
+y = [2.0410 2.0790 2.1140];
+x_int = 115;
+[y_int] = gregory_newton(x, y, x_int)
+
 disp('> Run an example "Interpolation: Neville method".')
 x = [1.0 1.3 1.6 1.9 2.2];
 y = [0.7651977 0.6200860 0.4554022 0.2818186 0.1103623];
 x_int = 1.5;
 [y_int, q] = neville(x, y, x_int)
+
+disp('> Run an example "Polynomials: Root limits".')
+c = [1 2 -13 -14 24];
+[lim] = root_limits(c)
 
 disp('> Run an example "Polynomials: Briot-Ruffini method".')
 root = -2;
@@ -130,6 +178,14 @@ b = 2.0;
 h = 0.25;
 n = (b - a) / h;
 [xi] = composite_simpson(f, b, a, n)
+
+disp('> Run an example "Integration: Romberg method".')
+f = @(x) (x^2 * log(x^2 + 1));
+a = 0.0;
+b = 2.0;
+h = 0.25;
+n = (b - a) / h;
+[xi] = romberg(f, a, b, n)
 
 disp('> Run an example "ODE: Euler method".')
 f = @(x, y) (y - x^2 + 1);
