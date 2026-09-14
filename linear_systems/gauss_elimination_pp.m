@@ -14,7 +14,7 @@ function [a] = gauss_elimination_pp(a, b)
     [n, m] = size(a);
 
     if n ~= m
-        error("'Error: 'a' must be a square matrix.")
+        error('Error: "a" must be a square matrix.')
     end
 
     % Produces the augmented matrix
