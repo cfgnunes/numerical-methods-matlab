@@ -13,14 +13,14 @@ function [x, iter] = gauss_seidel(a, b, x0, toler, iter_max)
     %     iter: number of iterations used by the method.
 
     % L and U matrices
-    lower = tril(a);
-    upper = a - lower;
+    l = tril(a);
+    u = a - l;
 
     % Iterative process
     x = [];
 
     for iter = 1:iter_max
-        x = lower \ (b - upper * x0);
+        x = l \ (b - u * x0);
 
         if norm(x - x0, inf) / norm(x, inf) <= toler
             break;
