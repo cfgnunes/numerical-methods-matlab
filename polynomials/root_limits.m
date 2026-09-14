@@ -7,15 +7,15 @@ function [lim] = root_limits(c)
     %     c: polynomial coefficients.
     %
     % Returns:
-    %     lim: lower and upper limits of positive and negative roots,
-    %         respectively.
+    %     lim: lower and upper limits of positive and
+    %         negative roots, respectively.
 
     lim = zeros(1, 4);
     n = size(c, 2) - 1;
     c = [c, 0];
 
     if c(1) == 0
-        error('Error: The first coefficient is null.');
+        error('Error: The first coefficient is null.')
     end
 
     t = n + 1;

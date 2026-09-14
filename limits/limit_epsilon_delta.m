@@ -35,7 +35,7 @@ function [limit, iter, converged] = limit_epsilon_delta(f, x, toler, iter_max)
     end
 
     if abs(limit_up - limit_low) > 10 * toler
-        error('Error: Two sided limit does not exist.');
+        error('Error: Two sided limit does not exist.')
     end
 
     limit = limit_low;

@@ -129,9 +129,9 @@ c = [1 2 -13 -14 24];
 [lim] = root_limits(c)
 
 disp('> Run an example "Polynomials: Briot-Ruffini method".')
-root = -2;
 a = [2 0 -3 3 -4];
-[b, rest] = briot_ruffini(root, a)
+root = -2;
+[b, rest] = briot_ruffini(a, root)
 
 disp('> Run an example "Polynomials: Newtons Divided-Difference method".')
 x = [1.0 1.3 1.6 1.9 2.2];
@@ -164,7 +164,7 @@ a = 0.0;
 b = 2.0;
 h = 0.25;
 n = (b - a) / h;
-[xi] = composite_trapezoidal(f, b, a, n)
+[xi] = composite_trapezoidal(f, a, b, n)
 
 disp('> Run an example "Integration: Composite 1/3 Simpsons Rule".')
 x = [0, 6, 12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72, 78, 84];
@@ -177,7 +177,7 @@ a = 0.0;
 b = 2.0;
 h = 0.25;
 n = (b - a) / h;
-[xi] = composite_simpson(f, b, a, n)
+[xi] = composite_simpson(f, a, b, n)
 
 disp('> Run an example "Integration: Romberg method".')
 f = @(x) (x^2 * log(x^2 + 1));
@@ -243,14 +243,14 @@ b = [-8 -20 -2 4];
 [a] = gauss_elimination_pp(a, b')
 
 disp('> Run an example "Linear Systems: Backward Substitution".')
-u = a(:, 1:end - 1);
+upper = a(:, 1:end - 1);
 d = a(:, end);
-[x] = backward_substitution(u, d)
+[x] = backward_substitution(upper, d)
 
 disp('> Run an example "Linear Systems: Forward Substitution".')
-l = [3 0 0 0; -1 1 0 0; 3 -2 -1 0; 1 -2 6 2];
+lower = [3 0 0 0; -1 1 0 0; 3 -2 -1 0; 1 -2 6 2];
 c = [5 6 4 2];
-[a] = forward_substitution(l, c')
+[x] = forward_substitution(lower, c')
 
 disp('> Run an example "Iterative Linear Systems: Jacobi".')
 a = [10 -1 2 0; -1 11 -1 3; 2 -1 10 -1; 0 3 -1 8];

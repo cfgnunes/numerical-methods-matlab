@@ -2,8 +2,8 @@ function [y_int] = gregory_newton(x, y, x_int)
     % Interpolates a value using the 'Gregory-Newton polynomial'.
     %
     % Args:
-    %     x: an array containing x values.
-    %     y: an array containing y values.
+    %     x: x values.
+    %     y: y values.
     %     x_int: value to interpolate.
     %
     % Returns:

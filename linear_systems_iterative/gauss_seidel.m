@@ -1,26 +1,28 @@
-function [x, iter] = gauss_seidel(a, b, x0, tol, iter_max)
+function [x, iter] = gauss_seidel(a, b, x0, toler, iter_max)
     % Gauss-Seidel method: solve Ax = b given an initial approximation x0.
     %
     % Args:
     %     a: matrix A from system Ax=b.
-    %     b: an array containing b values.
+    %     b: b values.
     %     x0: initial approximation of the solution.
-    %     tol: tolerance.
-    %     iter_max: maximum number of iterations.
+    %     toler: tolerance (stopping criterion).
+    %     iter_max: maximum number of iterations (stopping criterion).
     %
     % Returns:
-    %     x: solution of linear the system.
-    %     iter: used iterations.
+    %     x: solution of the linear system.
+    %     iter: number of iterations used by the method.
 
     % L and U matrices
-    l = tril(a);
-    u = a - l;
+    lower = tril(a);
+    upper = a - lower;
 
     % Iterative process
-    for iter = 1:iter_max
-        x = l \ (b - u * x0); % "A\B" is the same as "INV(A)*B"
+    x = [];
 
-        if norm(x - x0, inf) / norm(x, inf) <= tol
+    for iter = 1:iter_max
+        x = lower \ (b - upper * x0);
+
+        if norm(x - x0, inf) / norm(x, inf) <= toler
             break;
         end
 

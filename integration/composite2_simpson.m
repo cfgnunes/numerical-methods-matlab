@@ -1,17 +1,17 @@
 function [xi] = composite2_simpson(x, y)
-    % Calculate the integral from 1/3 Simpson's Rule.
+    % Calculate the integral using 1/3 Simpson's Rule.
     %
     % Args:
-    %     x: an array containing x values.
-    %     y: an array containing y values.
+    %     x: x values.
+    %     y: y values.
     %
     % Returns:
-    %     xi: integral value.
+    %     xi: numerical approximation of the definite integral.
 
     x_size = size(x, 2);
     y_size = size(y, 2);
 
-    if y_size ~= y_size
+    if x_size ~= y_size
         error('Error: "x" and "y" must have same size.')
     end
 
@@ -23,7 +23,7 @@ function [xi] = composite2_simpson(x, y)
 
     for i = 2:(n - 1)
 
-        if mod(i, 2) == 0
+        if mod(i - 1, 2) == 0
             sum_even = sum_even + y(i);
         else
             sum_odd = sum_odd + y(i);

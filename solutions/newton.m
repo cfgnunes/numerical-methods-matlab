@@ -1,34 +1,41 @@
-function [root, iter, converged] = newton(f, df, x0, tol, iter_max)
+function [root, iter, converged] = newton(f, df, x0, toler, iter_max)
     % Calculate the root of an equation by the Newton method.
     %
     % Args:
-    %     f: function f(x).
-    %     df: derivative of function f(x).
+    %     f: equation f(x).
+    %     df: derivative of equation f(x).
     %     x0: initial guess.
-    %     tol: tolerance.
-    %     iter_max: maximum number of iterations.
+    %     toler: tolerance (stopping criterion).
+    %     iter_max: maximum number of iterations (stopping criterion).
     %
     % Returns:
     %     root: root value.
-    %     iter: used iterations.
-    %     converged: found the root.
+    %     iter: number of iterations used by the method.
+    %     converged: flag to indicate if the root was found.
 
+    fx = f(x0);
+    dfx = df(x0);
     x = x0;
-    fx = f(x);
-    dfx = df(x);
 
-    iter = 0;
-    fprintf('iter: %.3d\t x: %.4f\t dfx: %.4f\t fx: %.4f\n', iter, x, dfx, fx);
+    fprintf('i = 000,\tx = %+.4f,\tfx = %+.4f\n', x, fx);
+
+    converged = 0;
 
     for iter = 1:iter_max
-        deltaX = -fx / dfx;
-        x = x + deltaX;
+
+        if dfx == 0
+            break;
+        end
+
+        delta_x = -fx / dfx;
+        x = x + delta_x;
         fx = f(x);
         dfx = df(x);
 
-        fprintf('iter: %.3d\t x: %.4f\t dfx: %.4f\t fx: %.4f\t deltaX: %.4f\n', iter, x, dfx, fx, deltaX);
+        fprintf('i = %03d,\tx = %+.4f,\tfx = %+.4f,\tdx = %+.4f\n', iter, x, fx, delta_x);
 
-        if (abs(deltaX) <= tol && abs(fx) <= tol) || dfx == 0
+        if abs(delta_x) <= toler && abs(fx) <= toler
+            converged = 1;
             break;
         end
 
@@ -36,11 +43,8 @@ function [root, iter, converged] = newton(f, df, x0, tol, iter_max)
 
     root = x;
 
-    if abs(deltaX) <= tol && abs(fx) <= tol
-        converged = 1;
-    else
+    if converged == 0
         warning('Warning: The method did not converge.');
-        converged = 0;
     end
 
 end

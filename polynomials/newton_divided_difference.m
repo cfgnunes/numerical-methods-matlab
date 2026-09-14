@@ -4,21 +4,22 @@ function [f] = newton_divided_difference(x, y)
     % Also, find Newton's polynomial.
     %
     % Args:
-    %     x: an array containing x values.
-    %     y: an array containing y values.
+    %     x: x values.
+    %     y: y values.
     %
     % Returns:
-    %     f: an array containing Newton's divided difference coefficients.
+    %     f: Newton's divided difference coefficients.
 
     n = size(x, 2);
     q = zeros(n, n - 1);
-    q = [y' q]; % Insert 'y' in the first column of the matrix 'q'
+
+    % Insert 'y' in the first column of the matrix 'q'
+    q = [y' q];
 
     for i = 2:n
 
         for j = 2:i
-            q(i, j) = q(i, j - 1) - q(i - 1, j - 1);
-            q(i, j) = q(i, j) / (x(i) - x(i - j + 1));
+            q(i, j) = (q(i, j - 1) - q(i - 1, j - 1)) / (x(i) - x(i - j + 1));
         end
 
     end
@@ -32,13 +33,13 @@ function [f] = newton_divided_difference(x, y)
 
     % Prints the polynomial
     disp('The polynomial is:')
-    fprintf('P(x)=%+.4f', f(1));
+    fprintf('p(x)=%+.3f', f(1));
 
     for i = 2:n
-        fprintf('%+.4f', f(i));
+        fprintf('%+.3f', f(i));
 
         for j = 2:i
-            fprintf('(x%+.4f)', x(j - 1) *- 1);
+            fprintf('(x%+.3f)', x(j - 1) * -1);
         end
 
     end

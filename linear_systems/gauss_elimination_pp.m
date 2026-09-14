@@ -6,7 +6,7 @@ function [a] = gauss_elimination_pp(a, b)
     %
     % Args:
     %     a: matrix A from system Ax=b.
-    %     b: an array containing b values.
+    %     b: b values.
     %
     % Returns:
     %     a: augmented upper triangular matrix.
@@ -14,10 +14,11 @@ function [a] = gauss_elimination_pp(a, b)
     [n, m] = size(a);
 
     if n ~= m
-        error('Error: "a" must be a square matrix.')
+        error("'Error: 'a' must be a square matrix.")
     end
 
-    a = [a, b]; % Produces the augmented matrix
+    % Produces the augmented matrix
+    a = [double(a), double(b)];
 
     % Elimination process starts
     for i = 1:(n - 1)
@@ -39,14 +40,13 @@ function [a] = gauss_elimination_pp(a, b)
         end
 
         if p == n + 1
-            warning('Info: No unique solution.');
-        else
+            warning('Info: No unique solution.')
+            return
+        end
 
-            if p ~= i
-                % Swap rows
-                a([i p], :) = a([p i], :);
-            end
-
+        if p ~= i
+            % Swap rows
+            a([i p], :) = a([p i], :);
         end
 
         for j = (i + 1):n
@@ -57,7 +57,7 @@ function [a] = gauss_elimination_pp(a, b)
 
     % Checking for nonzero of last entry
     if a(n, n) == 0
-        warning('Info: No unique solution.');
+        warning('Info: No unique solution.')
     end
 
 end

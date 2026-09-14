@@ -1,15 +1,15 @@
-function [b, rest] = briot_ruffini(root, a)
-    % Divide a polynomial by another polynomial.
+function [b, rest] = briot_ruffini(a, root)
+    % Divide a polynomial by the linear factor (x - root).
     %
     % The format is: P(x) = Q(x) * (x-root) + rest.
     %
     % Args:
-    %     a: an array containing the coefficients of the input polynomial.
-    %     root: one of the polynomial roots.
+    %     a: the coefficients of the input polynomial.
+    %     root: root of the linear divisor (x - root).
     %
     % Returns:
-    %     b: an array containing the coefficients of the output polynomial.
-    %     rest: polynomial division Rest.
+    %     b: the coefficients of the output polynomial.
+    %     rest: remainder of the polynomial division.
 
     n = size(a, 2) - 1;
     b = zeros(1, n);

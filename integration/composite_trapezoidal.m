@@ -1,14 +1,14 @@
-function [xi] = composite_trapezoidal(f, b, a, n)
-    % Calculate the integral from the Trapezoidal Rule.
+function [xi] = composite_trapezoidal(f, a, b, n)
+    % Calculate the integral using the Trapezoidal Rule.
     %
     % Args:
-    %     f: function f(x).
+    %     f: the equation f(x).
     %     a: the initial point.
     %     b: the final point.
     %     n: number of intervals.
     %
     % Returns:
-    %     xi: integral value.
+    %     xi: numerical approximation of the definite integral.
 
     h = (b - a) / n;
 

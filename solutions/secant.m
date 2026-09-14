@@ -1,17 +1,17 @@
-function [root, iter, converged] = secant(f, a, b, tol, iter_max)
+function [root, iter, converged] = secant(f, a, b, toler, iter_max)
     % Calculate the root of an equation by the Secant method.
     %
     % Args:
-    %     f: function f(x).
+    %     f: equation f(x).
     %     a: lower limit.
     %     b: upper limit.
-    %     tol: tolerance.
-    %     iter_max: maximum number of iterations.
+    %     toler: tolerance (stopping criterion).
+    %     iter_max: maximum number of iterations (stopping criterion).
     %
     % Returns:
     %     root: root value.
-    %     iter: used iterations.
-    %     converged: found the root.
+    %     iter: number of iterations used by the method.
+    %     converged: flag to indicate if the root was found.
 
     fa = f(a);
     fb = f(b);
@@ -36,13 +36,17 @@ function [root, iter, converged] = secant(f, a, b, tol, iter_max)
     x = b;
     fx = fb;
 
-    for iter = 0:iter_max
-        deltaX = -fx / (fb - fa) * (b - a);
-        x = x + deltaX;
-        fx = f(x);
-        fprintf('iter: %.3d\t a: %.4f\t fa: %.4f\t b: %.4f\t fb: %.4f\t x: %.4f\t fx: %.4f\t deltaX: %.4f\n', iter, a, fa, b, fb, x, fx, deltaX);
+    converged = 0;
 
-        if abs(deltaX) <= tol && abs(fx) <= tol
+    for iter = 0:iter_max
+        delta_x = -fx / (fb - fa) * (b - a);
+        x = x + delta_x;
+        fx = f(x);
+
+        fprintf('i = %03d,\tx = %+.4f,\tfx = %+.4f,\tdx = %+.4f\n', iter, x, fx, delta_x);
+
+        if abs(delta_x) <= toler && abs(fx) <= toler
+            converged = 1;
             break;
         end
 
@@ -54,11 +58,8 @@ function [root, iter, converged] = secant(f, a, b, tol, iter_max)
 
     root = x;
 
-    if abs(deltaX) <= tol && abs(fx) <= tol
-        converged = 1;
-    else
+    if converged == 0
         warning('Warning: The method did not converge.');
-        converged = 0;
     end
 
 end
