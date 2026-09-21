@@ -1,6 +1,6 @@
 # Numerical Methods in MATLAB
 
-Numerical methods implementation in MATLAB.
+Numerical methods implementation in MATLAB/Octave.
 
 For the implementation in Python, see [this repository](https://github.com/cfgnunes/numerical-methods-python).
 
