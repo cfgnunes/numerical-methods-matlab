@@ -1,4 +1,4 @@
-%% Numerical methods implementation in MATLAB.
+%% Numerical methods implementation in MATLAB/Octave.
 %
 % Author: Cristiano Fraga G. Nunes <cfgnunes@gmail.com>
 
