@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v7
+
+    - name: Set up Miniconda
+      uses: conda-incubator/setup-miniconda@v3
+
+    - name: Create the Octave environment
+      shell: bash -el {0}
+      run: conda create -y -n env-math --override-channels -c conda-forge octave
+
+    - name: Test the project
+      shell: bash -el {0}
+      run: |
+        conda activate env-math
+        octave main.m
