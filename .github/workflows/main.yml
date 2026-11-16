@@ -12,12 +12,14 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v7
 
-    - name: Set up Miniconda
-      uses: conda-incubator/setup-miniconda@v3
+    - name: Set up Conda
+      uses: conda-incubator/setup-miniconda@v4
+      with:
+        miniforge-version: latest
 
     - name: Create the Octave environment
       shell: bash -el {0}
-      run: conda create -y -n env-math --override-channels -c conda-forge octave
+      run: conda create -y -n env-math octave
 
     - name: Test the project
       shell: bash -el {0}

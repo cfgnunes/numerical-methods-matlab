@@ -6,7 +6,7 @@ For the implementation in Python, see [this repository](https://github.com/cfgnu
 
 ## Getting Started
 
-If you don't have MATLAB installed, you can use [Miniconda](https://docs.conda.io) to install Octave:
+If you don't have MATLAB installed, you can use [Conda](https://docs.conda.io) to install Octave:
 
 ```sh
 conda create -y -n env-math --override-channels -c conda-forge octave
